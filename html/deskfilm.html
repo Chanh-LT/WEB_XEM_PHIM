@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TỦ PHIM </title>
+    <link rel="stylesheet" href="../css/deskfilm.css">
+</head>
+<body >
+ <header>
+        <div class="logo">VOVIPHIM</div>
+          <div class="search_bar">
+            <input type="text" id="searchInput" placeholder=" Tìm phim...">
+        </div>
+            <div class="nav-links">
+                 <a href="../html/homepage.html">Trang chủ</a>
+                <div class="dropdown">
+                    <a href="#">Thể loại</a>
+                        <div class="dropdown-content">
+                            <a href="../category/sinh_ton.html">Sinh tồn</a>
+                            <a href="../category/tieu_su.html">Tiểu sử</a>
+                            <a href="../category/sci-fi.html">Sci-fi</a>
+                            <a href="../category/boxing.html">Boxing</a>
+                            <a href="../category/chien_tranh.html">Chiến tranh</a>
+                            <a href="../category/tinh_cam.html">Tình cảm</a>
+                            <a href="../category/giat_gan.html">Giật gân</a>
+                            <a href="../category/tai_lieu.html">Tài liệu</a>
+                            <a href="../category/huyen_bi.html">Huyền bí</a>
+                            <a href="../category/hai_huoc.html">Hài hước</a>
+                            <a href="../category/bi_an.html">Bí ẩn</a>
+                            <a href="../category/kinh_di.html">Kinh dị</a>
+                            <a href="../category/drama.html">Drama</a>
+                            <a href="../category/kinh_di.html">Hành động</a>
+                        </div>
+                </div>
+                <a href="#">Tài khoản</a>
+                <a href="../html/homepage.html">Tủ phim</a>
+            </div>
+    </header>
+    <main>
+        <main>
+   <div id="favoriteList" class="favorite-row"></div>
+<script>
+const films = JSON.parse(localStorage.getItem('tuPhim')) || [];
+const favoriteList = document.getElementById('favoriteList');
+
+films.forEach((film, idx) => {
+    const listItem = document.createElement('li');
+
+    // Hiển thị ảnh lớn, click vào ảnh sẽ mở phim
+    if (film.image) {
+        const img = document.createElement('img');
+        img.src = film.image;
+        img.alt = film.title;
+        img.style.width = "180px";
+        img.style.cursor = "pointer";
+        img.onclick = function() {
+            window.open(film.link, '_blank');
+        };
+        listItem.appendChild(img);
+    }
+
+    // Tiêu đề nổi bật
+    const titleSpan = document.createElement('div');
+    titleSpan.textContent = film.title;
+    titleSpan.style.fontWeight = "bold";
+    titleSpan.style.color = "#e74c3c";
+    titleSpan.style.margin = "10px 0";
+    listItem.appendChild(titleSpan);
+
+    // Nút xóa
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Xóa';
+    removeBtn.style.marginTop = "10px";
+    removeBtn.onclick = function() {
+        films.splice(idx, 1);
+        localStorage.setItem('tuPhim', JSON.stringify(films));
+        location.reload();
+    };
+    listItem.appendChild(removeBtn);
+
+    favoriteList.appendChild(listItem);
+});
+</script>
+</main>
+    </main>
+</body>
+</html>

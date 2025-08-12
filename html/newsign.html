@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng ký tài khoản mới">
+    <link rel="stylesheet" href="../css/newsign.css">
+    <title>Đăng ký</title>
+    <script>
+       function checkpass(){
+      var pass=document.querySelector("#password").value;
+      var confirmpass=document.querySelector('#confirm-password').value;
+      if(pass==confirmpass){
+        alert("mật khẩu khớp nhau");
+        return true;
+      }
+      else{
+        alert("mật khẩu sai! nhập lại"); 
+        return false;
+      }
+    }
+    </script>
+</head>
+<body bgcolor="#0d122a">
+        <h1>ĐĂNG KÝ TÀI KHOẢN MỚI</h1>
+        <!-- Form for registration will go here -->
+   <div id="form-container">
+        <form action="register" method="post" onSubmit="return checkpass()">
+        <label for="username">Email</label>
+        <input type="text" id="username" name="username" required placeholder="Vd:123@gmail.com">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" name="password" required>
+        <span style="color:red">Sử dụng các kí tự đặc biệt như @ / để mật khẩu mạnh hơn</span>
+        <label for="confirm-password">Xác nhận mật khẩu</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <label>
+    <input type="checkbox" name="remember" id="remember" checked>
+    Nhớ mật khẩu
+</label>
+        <button type="submit">Đăng ký</button>
+    </form>
+    <div style="text-align:center; margin-top:20px;">
+    <p>Hoặc đăng ký bằng</p>
+    <a href="YOUR_GOOGLE_AUTH_URL" style="text-decoration:none;">
+        <button type="button" style="background:#fff; color:#444; border:1px solid #ccc; margin-right:10px;">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" width="20" >
+            Google
+        </button>
+    </a>
+    <a href="YOUR_FACEBOOK_AUTH_URL" style="text-decoration:none;">
+        <button type="button" style="background:#1877f3; color:#fff; border:none;" >
+            <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Facebook" width="20">
+            Facebook
+        </button>
+    </a>
+</div>
+   </div>
+    </div>
+</body>
+</html>

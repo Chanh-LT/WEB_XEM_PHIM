@@ -1,0 +1,63 @@
+h1{
+    text-align: center;
+    color: #e63946;
+    font-size: 2em;
+    margin-top: 20px;
+    text-shadow: 0 0 3px #ff0000;
+}
+#form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #1e1e1e;
+    color: rgb(45, 45, 45);
+    padding: 30px;
+    border-style: solid;
+    border-radius: 12px;
+    box-shadow: 10px 10px 5px 12px rgba(0, 0, 0, 0.1);
+}
+    label {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #ffffff;
+        font-size:large;
+    }
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    box-sizing: border-box; /* giúp padding không làm tăng kích thước tổng */
+    padding: 8px; /* có thể điều chỉnh tùy ý */
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #ff3c38;
+        color:white;
+        font-size: 20px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+ p{
+        color:#ffffff;
+        font-size: large;
+        }
+    
+        .form-container {
+        max-width: 380px;
+        margin: 30px auto;
+        background: #1e1e1e;
+        color: rgb(45, 45, 45);
+        padding: 30px;
+        border-style: solid;
+        border-radius: 12px;
+        box-shadow: 10px 10px 5px 12px rgba(0, 0, 0, 0.1);
+ }

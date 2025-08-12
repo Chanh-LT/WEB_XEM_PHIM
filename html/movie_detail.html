@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chi tiết phim</title>
+  <link rel="stylesheet" href="../css/movies.css">
+</head>
+<body>
+    <header>
+        <div class="logo">VOVIPHIM</div>
+                <div class="search_bar">
+                    <input type="text" placeholder="Tên phim hoặc thể loại bạn muốn tìm" name="search">
+                    <button type="submit">Tìm kiếm</button>
+                </div>
+            <div class="nav-links">
+                 <a href="../html/homepage.html">Trang chủ</a>
+                <div class="dropdown">
+                    <a href="#">Thể loại</a>
+                        <div class="dropdown-content">
+                            <a href="../category/sinh_ton.html">Sinh tồn</a>
+                            <a href="../category/tieu_su.html">Tiểu sử</a>
+                            <a href="../category/sci-fi.html">Sci-fi</a>
+                            <a href="../category/boxing.html">Boxing</a>
+                            <a href="../category/chien_tranh.html">Chiến tranh</a>
+                            <a href="../category/tinh_cam.html">Tình cảm</a>
+                            <a href="../category/giat_gan.html">Giật gân</a>
+                            <a href="../category/tai_lieu.html">Tài liệu</a>
+                            <a href="../category/huyen_bi.html">Huyền bí</a>
+                            <a href="../category/hai_huoc.html">Hài hước</a>
+                            <a href="../category/bi_an.html">Bí ẩn</a>
+                            <a href="../category/kinh_di.html">Kinh dị</a>
+                            <a href="../category/drama.html">Drama</a>
+                            <a href="../category/kinh_di.html">Hành động</a>
+                        </div>
+                </div>
+                <a href="#">Tài khoản</a>
+                <a href="#">Tủ phim</a>
+            </div>
+    </header>
+
+    <h1 id="movie-title" align="center">Đang tải...</h1>
+    <div class="poster_container">
+        <img id="movie-image" src="" alt="Poster phim" class="poster">
+    </div>
+
+    <div class="form-container">
+        <form>
+            <button type="submit" class="xem_phim">Xem phim</button>
+            <button type="button" class="them_tu_phim">Thêm vào tủ phim</button>
+        </form>
+    </div>
+
+    <div id="movie-info" style="text-align: center; line-height: 2; padding: 30px; flex: 1; width: 100%;">
+    <script>
+    //Lấy dữ liệu đã được mã hóa ở add_film lưu thành các biến
+        const params = new URLSearchParams(window.location.search);
+        const ten = decodeURIComponent(params.get("name") || "Không có thông tin");
+        const anh = decodeURIComponent(params.get("image") || "Không có thông tin");
+        const daoDien = decodeURIComponent(params.get("director") || "Không có thông tin");
+        const quocGia = decodeURIComponent(params.get("country") || "Không có thông tin");
+        const noiDung = decodeURIComponent(params.get("plot") || "Không có thông tin");
+    //gán tên phim và ảnh
+    document.getElementById("movie-title").textContent = ten;
+    document.getElementById("movie-image").src = anh;
+
+    //gán đạo diễn, quốc gia và nội dung phim 
+    document.getElementById("movie-info").innerHTML = `
+        <p><strong>Đạo diễn:</strong> ${daoDien}</p>
+        <p><strong>Quốc gia:</strong> ${quocGia}</p>
+        <p><strong>Cốt truyện:</strong> ${noiDung}</p>
+        `;
+    </script>
+    </div>
+</body>
+</html>

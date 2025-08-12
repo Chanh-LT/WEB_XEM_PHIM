@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+    background-color: #141414;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: black;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: red;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 1em;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: red;
+    transform: scale(1);
+}
+
+.search_bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search_bar input {
+  width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #1c1c1c;
+  border: 2px solid #ff0000;
+  color:white;
+}
+
+.movie {
+    width: 200px;
+    height: 300px;
+    background: gray;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+}
+
+.movie-item {
+    width: 200px;
+    height: 300px;
+    background: none;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    color:white;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 550;
+}
+
+    .movie-item img{
+    width: 200px;
+    height: 300px;
+    background: none;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    color:white;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 550;
+    }
+
+
+.movie:hover{
+    transform: scale(1.15);
+    transition: transform 0.3s;
+}
+
+.movie-item:hover{
+    transform: scale(1.15);
+    transition: transform 0.3s;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    height: 325px;
+    overflow-x: auto;
+    gap: 1em;
+}
+
+.hiddenRow {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  row-gap: 45px;
+  margin-top: 20px;
+}
+
+.HomeTopic {
+  margin-left: 22%;
+  color: gold;
+}
+
+section {
+  padding: 10px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 1000;
+  min-width: 140px;
+}
+
+.dropdown-content a {
+  display: block;
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.add_film_container {
+    max-width: 380px;
+    margin: 30px auto;
+    background: #1e1e1e;
+    padding: 30px;
+    color: rgb(45, 45, 45);
+    border-style: solid;
+    border-radius: 12px;
+    box-shadow: 10px 10px 5px 12px rgba(0, 0, 0, 0.1); /*chiều ngang, chiều dọc, độ mờ, độ phủ*/
+    line-height: 30px;
+}
+
+.add_film_container h2 {
+    margin-top: 0%;
+    display: flex;
+    justify-content: center;
+    color: white
+}
+
+.add_film_container input {
+    width: 100%;
+    font-weight: 800;
+}
+
+textarea {
+  font-size: larger;
+}
+
+
+.add_film_container button {
+    width: 100%;
+    height: 50px;
+    font-size: 150%;
+    border-radius: 10px;
+    color: white;
+    background-color: #ff3c38;;
+}
+
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.movie-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    width: calc(25% - 20px); 
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.movie-card img {
+    max-width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.movie-card h3 {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie-card p {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+button { 
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 50%;
+    height: 50px;
+    font-size: 150%;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #ff3c38;
+    }

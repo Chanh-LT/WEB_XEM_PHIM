@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THÊM PHIM</title>
+    <link rel="stylesheet" href="../css/add_film.css">
+</head>
+<body>
+    <header>
+        <div class="logo">VOVIPHIM</div>
+          <div class="search_bar">
+            <input type="text" id="searchInput" placeholder=" Tìm phim...">
+        </div>
+            <div class="nav-links">
+                 <a href="../html/homepage.html">Trang chủ</a>
+                <div class="dropdown">
+                    <a href="#">Thể loại</a>
+                        <div class="dropdown-content">
+                            <a href="../category/sinh_ton.html">Sinh tồn</a>
+                            <a href="../category/tieu_su.html">Tiểu sử</a>
+                            <a href="../category/sci-fi.html">Sci-fi</a>
+                            <a href="../category/boxing.html">Boxing</a>
+                            <a href="../category/chien_tranh.html">Chiến tranh</a>
+                            <a href="../category/tinh_cam.html">Tình cảm</a>
+                            <a href="../category/giat_gan.html">Giật gân</a>
+                            <a href="../category/tai_lieu.html">Tài liệu</a>
+                            <a href="../category/huyen_bi.html">Huyền bí</a>
+                            <a href="../category/hai_huoc.html">Hài hước</a>
+                            <a href="../category/bi_an.html">Bí ẩn</a>
+                            <a href="../category/kinh_di.html">Kinh dị</a>
+                            <a href="../category/drama.html">Drama</a>
+                            <a href="../category/kinh_di.html">Hành động</a>
+                        </div>
+                </div>
+                <a href="#">Tài khoản</a>
+                <a href="../html/deskfilm.html">Tủ phim</a>
+            </div>
+    </header>
+    
+
+  <div class="add_film_container">
+    <h2 class="label">Thêm phim mới</h2>
+    <input type="text" id="imageLink" placeholder="Link ảnh phim"> <br>
+    <input type="text" id="movieName" placeholder="Tên phim"> <br>
+    <input type="text" id="director" placeholder="Đạo diễn"> <br>
+    <input type="text" id="country" placeholder="Quốc gia"> <br>
+    <textarea style="width: 100%;" id="plot" placeholder="Nội dung phim"></textarea>
+    <button onclick="addMovie()">Thêm phim</button>
+  </div>
+
+  <div class="movie-grid" id="movieContainer"></div>
+
+  <script>
+  function addMovie() {
+    const image = document.getElementById("imageLink").value.trim();
+    const name = document.getElementById("movieName").value.trim();
+    const director = document.getElementById("director").value.trim();
+    const country = document.getElementById("country").value.trim();
+    const plot = document.getElementById("plot").value.trim();
+
+    if (!image || !name || !director || !country || !plot) {
+      alert("Vui lòng nhập đầy đủ các ô thông tin");
+      return;
+    }
+
+    //mã hóa dữ liệu thành dạng an toàn
+    const encodedName = encodeURIComponent(name);
+    const encodedImage = encodeURIComponent(image);
+    const encodedDirector = encodeURIComponent(director);
+    const encodedCountry = encodeURIComponent(country);
+    const encodedPlot = encodeURIComponent(plot);
+    const detailUrl = `movie_detail.html?name=${encodedName}&image=${encodedImage}&director=${encodedDirector}&country=${encodedCountry}&plot=${encodedPlot}`;
+
+
+    //tạo card
+    const card = document.createElement("div");
+    card.className = "movie-card";
+
+    //tạo link với ảnh phim thêm vào card
+    const link = document.createElement("a");
+    link.href = detailUrl;
+    link.target = "_blank";
+
+    const img = document.createElement("img");
+    img.src = image;
+    img.alt = name;
+    link.appendChild(img);
+    card.appendChild(link);
+
+    //thêm tên phim vào card
+    const title = document.createElement("h3");
+    title.textContent = name;
+    card.appendChild(title);
+
+    document.getElementById("movieContainer").appendChild(card);
+    document.getElementById("imageLink").value = "";
+    document.getElementById("movieName").value = "";
+    document.getElementById("director").value = "";
+    document.getElementById("country").value = "";
+    document.getElementById("plot").value = "";
+  }
+</script>
+</body>
+</html>
+
+
+
+
